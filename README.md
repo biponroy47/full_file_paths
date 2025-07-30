@@ -19,9 +19,12 @@ Below is a snippet of the output Excel file where the grayed out region are file
 
 <img src="./examples/a.png" alt="Architecture Diagram" width="600"/>
 
-1. Select actual folder stored on Network Drive
-2. Wait for program to scan entire folder
-3. Select Network Drive itself
-4. Click Generate Excel File
-5. Select save location
-6. Wait for file to save, then inspect all file paths in Excel manually and rename as preferred
+0. Clone this repository and build the exe using
+   `pyinstaller --onefile --windowed --name "Folder_Selector" app.py`
+1. Open exe under /dist
+2. Select actual folder stored on Network Drive
+3. Wait for program to scan entire folder
+4. Select Network Drive itself
+5. Click Generate Excel File
+6. Select save location
+7. Wait for file to save, then inspect all file paths in Excel manually and rename as preferred
