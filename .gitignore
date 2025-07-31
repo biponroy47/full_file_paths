@@ -1,4 +1,5 @@
 # PyInstaller build artifacts
 dist/
 build/
-Folder_Selector.spec 
+Folder_Selector.spec
+Full_File_Paths.spec
