@@ -223,9 +223,17 @@ def select_network_drive():
         drives = []
         for line in output.splitlines():
             if ":" in line and "\\" in line:
-                parts = line.split()
-                if len(parts) >= 2 and parts[0].endswith(":"):
-                    drives.append((parts[0], parts[1]))
+                # Find the drive letter (ends with :)
+                colon_pos = line.find(":")
+                if colon_pos != -1:
+                    drive_letter = line[:colon_pos + 1].strip()
+                    # Extract the UNC path - everything after the drive letter and whitespace
+                    unc_part = line[colon_pos + 1:].strip()
+                    # Find the first backslash sequence (\\)
+                    backslash_pos = unc_part.find("\\\\")
+                    if backslash_pos != -1:
+                        unc_path = unc_part[backslash_pos:].strip()
+                        drives.append((drive_letter, unc_path))
         if not drives:
             network_drive_path.set("No network drives found.")
             return
